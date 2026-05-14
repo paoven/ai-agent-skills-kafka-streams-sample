@@ -1,0 +1,10 @@
+{
+  "type": "record",
+  "name": "OrderLineItem",
+  "namespace": "com.example.orderprocessor",
+  "fields": [
+    {"name": "product_name", "type": "string"},
+    {"name": "quantity", "type": "int", "default": 0},
+    {"name": "unit_price", "type": "double", "default": 0.0}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "Customer",
+  "namespace": "com.example.orderprocessor",
+  "fields": [
+    {"name": "customer_id", "type": "string"},
+    {"name": "name", "type": "string"},
+    {"name": "email", "type": "string"},
+    {"name": "tier", "type": {"type": "enum", "name": "CustomerTier", "symbols": ["BRONZE", "SILVER", "GOLD", "PLATINUM"], "default": "BRONZE"}, "default": "BRONZE"}
+  ]
+}

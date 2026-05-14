@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.davidmc24.gradle.plugin.avro' version '1.9.1'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://packages.confluent.io/maven/' }
+}
+
+dependencies {
+    implementation 'org.apache.kafka:kafka-streams:4.2.0'
+    implementation 'io.confluent:kafka-streams-avro-serde:8.2.0'
+    implementation 'org.apache.avro:avro:1.12.0'
+    implementation 'org.slf4j:slf4j-simple:2.0.16'
+
+    testImplementation 'org.apache.kafka:kafka-streams-test-utils:4.2.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+avro {
+    stringType = "String"
+}
+
+application {
+    mainClass = 'com.example.orderprocessor.App'
+}
+
+def loadEnv = {
+    def envFile = file('.env')
+    if (envFile.exists()) {
+        envFile.readLines().each { line ->
+            if (line && !line.startsWith('#') && line.contains('=')) {
+                def (key, value) = line.split('=', 2)
+                environment key.trim(), value.trim()
+            }
+        }
+    }
+    environment System.getenv()
+}
+
+run { doFirst(loadEnv) }
+
+test { useJUnitPlatform() }

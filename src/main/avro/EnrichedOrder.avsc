@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "EnrichedOrder",
+  "namespace": "com.example.orderprocessor",
+  "fields": [
+    {"name": "order_id", "type": "string"},
+    {"name": "customer_id", "type": "string"},
+    {"name": "customer_name", "type": "string", "default": ""},
+    {"name": "customer_email", "type": "string", "default": ""},
+    {"name": "customer_tier", "type": "string", "default": ""},
+    {"name": "items", "type": {"type": "array", "items": "com.example.orderprocessor.OrderLineItem"}, "default": []},
+    {"name": "total_amount", "type": "double", "default": 0.0},
+    {"name": "item_count", "type": "int", "default": 0}
+  ]
+}

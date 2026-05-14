@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "OrderEvent",
+  "namespace": "com.example.orderprocessor",
+  "fields": [
+    {"name": "order_id", "type": "string"},
+    {"name": "customer_id", "type": "string"},
+    {"name": "event_type", "type": {"type": "enum", "name": "OrderEventType", "symbols": ["ORDER_CREATED", "ORDER_LINE_ADDED", "ORDER_LINE_REMOVED", "ORDER_PAYED", "ORDER_CLOSED"], "default": "ORDER_CREATED"}},
+    {"name": "product_name", "type": ["null", "string"], "default": null},
+    {"name": "quantity", "type": ["null", "int"], "default": null},
+    {"name": "unit_price", "type": ["null", "double"], "default": null},
+    {"name": "payment_method", "type": ["null", "string"], "default": null},
+    {"name": "timestamp", "type": {"type": "long", "logicalType": "timestamp-millis"}}
+  ]
+}

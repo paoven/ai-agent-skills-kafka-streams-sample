@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "OrderAggregate",
+  "namespace": "com.example.orderprocessor",
+  "fields": [
+    {"name": "order_id", "type": "string", "default": ""},
+    {"name": "customer_id", "type": "string", "default": ""},
+    {"name": "items", "type": {"type": "array", "items": "com.example.orderprocessor.OrderLineItem"}, "default": []},
+    {"name": "total_amount", "type": "double", "default": 0.0},
+    {"name": "is_paid", "type": "boolean", "default": false},
+    {"name": "is_closed", "type": "boolean", "default": false},
+    {"name": "last_updated", "type": {"type": "long", "logicalType": "timestamp-millis"}, "default": 0}
+  ]
+}

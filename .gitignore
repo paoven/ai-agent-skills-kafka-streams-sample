@@ -1,0 +1,33 @@
+# Gradle
+build/
+.gradle/
+gradle/wrapper/gradle-wrapper.jar
+
+# Java
+*.class
+*.jar
+*.war
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+*.swp
+
+# Environment
+.env
+
+# Kafka Streams state
+/state/
+/tmp/kafka-streams/
+
+# Claude Code / Agent Skills
+.agents/
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db

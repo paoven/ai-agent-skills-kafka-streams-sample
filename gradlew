@@ -1,5 +1,5 @@
 #!/bin/sh
-
+# generated
 #
 # Copyright © 2015 the original authors.
 #
